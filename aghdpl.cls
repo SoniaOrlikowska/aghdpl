@@ -17,7 +17,7 @@
 
 \RequirePackage{kvoptions}
 
-\DeclareStringOption[pl]{language}
+\DeclareStringOption[en]{language}
 \ProcessKeyvalOptions*
 
 \DeclareOption{pdflatex}{\pdflatextrue}
@@ -28,11 +28,11 @@
 
 \show\aghdpl@language
 
-\newcommand{\ThesisLanguage}{pl}
+\newcommand{\ThesisLanguage}{en}
 \IfStrEqCase{\aghdpl@language}{%
 	{en}{\renewcommand{\ThesisLanguage}{en}}%
-	{pl}{\renewcommand{\ThesisLanguage}{pl}}%
-}[\PackageError{aghdpl}{Invalid thesis language.}{Available languages: Polish (pl), English (en)}]
+	%{pl}{\renewcommand{\ThesisLanguage}{pl}}%
+}[\PackageError{aghdpl}{Invalid thesis language.}{Available languages: English (en)}]
 
 \show\ThesisLanguage
 
@@ -41,10 +41,10 @@
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
-\RequirePackage[english,polish]{babel}
+\RequirePackage[english]{babel}
 
 % Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
-\RequirePackage{polski}
+%\RequirePackage{polski}
 
 % Użyj kodowania UTF-8.
 \RequirePackage[utf8]{inputenc}
@@ -149,7 +149,7 @@
 		
 		{\sffamily\Large\itshape
 			\IfStrEqCase{\ThesisLanguage}{%
-				{pl}{\@titlePL}
+				%{pl}{\@titlePL}
 				{en}{\@titleEN}
 			}
 		}
@@ -158,7 +158,7 @@
 		{\sffamily\Large\itshape
 			\IfStrEqCase{\ThesisLanguage}{%
 				{pl}{\@titleEN}
-				{en}{\@titlePL}
+				%x{en}{\@titlePL}
 			}
 		}
 		\vspace{\fill}
