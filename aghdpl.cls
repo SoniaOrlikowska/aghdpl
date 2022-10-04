@@ -416,23 +416,25 @@
 %    Środowisko do tworzenia opisów symboli użytych w równaniu
 % ----------------------------------------------------------------------------
 
-\SetLabelAlign{parright}{\parbox[t]{\labelwidth}{\raggedleft#1}}
-\setlist[description]{style=multiline, topsep=10pt, align=parright}
+%SetLabelAlign{parright}{\parbox[t]{\labelwidth}{\raggedleft#1}}
+%\setlist[description]{style=multiline, topsep=10pt, align=parright}
 
 % Odstęp po obu stronach półpauzy.
-\newlength{\descriptiondashgap}
-\setlength{\descriptiondashgap}{0.5em}
+%\newlength{\descriptiondashgap}
+%\setlength{\descriptiondashgap}{0.5em}
 
 % Element na liście symboli matematycznych użytych w równaniu (symbol wyrównany do prawej, oddzielony półpauzą od definicji)
-\renewcommand*\descriptionlabel[1]{\hspace \labelsep \normalfont \bfseries #1 \mdseries\hspace{\descriptiondashgap}--\hspace{\descriptiondashgap}}
+%\renewcommand*\descriptionlabel[1]{\hspace \labelsep \normalfont \bfseries #1 \mdseries\hspace{\descriptiondashgap}--\hspace{\descriptiondashgap}}
 
 % Odległość półpauzy od lewego marginesu.
-\newlength{\eqwheremargin}
-\setlength{\eqwheremargin}{2cm}
+%\newlength{\eqwheremargin}
+%\setlength{\eqwheremargin}{2cm}
 
-\newenvironment{eqwhere}[1][]
-{%
-	\setlength{\eqwheremargin}{#1}%
-	\begin{description}[leftmargin=\eqwheremargin, itemsep=0cm, labelsep=0cm]
-}
-{\end{description}}
+%\newenvironment{eqwhere}[1][]
+%{%
+%	\setlength{\eqwheremargin}{#1}%
+	%\begin{description}[leftmargin=\eqwheremargin, itemsep=0cm, labelsep=0cm]
+%}
+%{\end{description}}
+
+

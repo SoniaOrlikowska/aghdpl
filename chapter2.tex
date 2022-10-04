@@ -128,8 +128,22 @@ The adjacency matrix of a graph requires $\varTheta(V^2)$memory, independent of 
 	A graph in which all vertices are adjacent to all others is said to be complete. 
 	\end{definition}
 	\begin{definition}
-	A density of a graph defines how complete the graph is. The density is defined as the number of edges divided by the number possible.
-	If self-loops are excluded, then the number possible is $\frac{n(n-1)}{2}$. If self-loops are allowed, then the number possible is $\frac{n(n+1)}{2}$.	
+	A density of a graph defines how complete the graph is. The density is defined as the number of edges divided by the number possible. Number possible is a the maximum number of edges that the graph can contain.
+	If self-loops are excluded, then the number possible is:\\
+	\begin{equation}\label{acyclic_density}
+	\frac{n(n-1)}{2}
+	\end{equation}
+	\begin{eqwhere}
+		$n$ is a number of vertices in a graph.\\
+	\end{eqwhere}
+	If self-loops are allowed, then the number possible is:
+	\begin{equation}\label{cyclic_density}
+		\frac{n(n+1)}{2}
+		\end{equation}
+		\begin{eqwhere}
+			$n$ is a number of vertices in a graph.
+		\end{eqwhere}
+		
 	\end{definition}
 \begin{definition}
 A free tree is an undirected, acyclic, connected graph. Let $G = (V,E)$ be an undirected graph. The following properties of a tree apply \\
@@ -159,8 +173,16 @@ The shortest path cannot contain any cycles.\cite{introduction }
 A cell is a single node in maze matrix. The position of a cell will be given by it's id eg. for a cell with a position $a_{11}$ in a grid, the id will be noted as $"1\char"0023 1"$;	
 \end{definition}
 \begin{definition}
-A degree of a vertex is denoted as $d(v)$ and it describes the number of adjacent cells.
+A degree of a vertex is denoted as $d(v)$ and it describes the number of adjacent cells.\cite{ReHofs}
 \end{definition}
+\begin{definition}
+	An average degree $\bar{d}$for a given graph is given by\cite{ReHofs}:
+	\begin{equation}
+	\bar{d} = \frac{density}{n-1}	
+	\end{equation}
+	\textbf{Where:}\\
+$n$ & is a number of nodes in the graph\\	
+	\end{definition}
 \begin{definition}
 A dead end is defined as a node with a degree $d(v) = 1$ in the maze that is linked to only one adjacent node.
 \end{definition}
@@ -171,16 +193,27 @@ A fork is defined as a node with a degree $d(v) = 2$ in the maze that is linked 
 An intersection is defined as a node with a degree $d(v) = 3$ in the maze that is linked to three adjacent nodes.
 \end{definition}
 \begin{definition}
-An average degree $\bar{d}$for a given graph is given by:
-\begin{equation}
-\bar{d} = \frac{density}{n-1}	
-\end{equation}	
-where $n$ is a number of nodes in the graph
+A cross id defined as a node with a degree$d(v) = 4$ in the maze that is linked to four adjacent nodes. 	
+\end{definition}
+
+\begin{definition}
+Cell is smallest element of the maze. The cell keeps the folowning information: it's cooridates, number of neigbours and their's position relative to the cell.	
+\end{definition}
+\begin{definition}
+Grid is considered as a square matrix. It's size defines the size of a maze. The grid keeps information about each cell and their relative positions in a array	
+\end{definition}
+\begin{definition}
+Move is considered as a transition from once cell to one of it's closest neighour. In this paper we are using only NSWE moves. The diagonal moves are forbiden.
+\begin{figure}
+	\centering
+	\includegraphics[width=.2\linewidth]{moves}
+	\caption{Allowed moves}
+\end{figure}		
 \end{definition}
 \begin{definition}
 A maze can be considered as a graph, where each intersection is a vertex, and the path between them is an edge. 
 \end{definition}
-In this paper, I will be considering only 2D mazes on a rectangular grid [Rys.1]. The grid during the implementation process will be treated as a graph[RysX]. In this paper, I will consider a few types of mazes in this work.
+In this paper, I will be considering only 2D mazes on a rectangular grid [Rys.1]. The grid during the implementation process will be treated as a graph[RysX]. In this paper, I will consider a few types of mazes:
  \begin{itemize}
  \item[$-$] Perfect maze
  \item[$-$] Directed maze
@@ -219,7 +252,7 @@ A Travelling Salesman Problem (TSP) is a problem of finding the shortest bath be
 This will be more precisley described in section X.2
  \section{Maze Generation Algorithms}
 \subsection{Binary Tree}
-The Binary Tree algorithm is the simplest algorithm for generating a maze. In a given grid, for each cell algorithms decides whether to carve a passage north or east (or any two other directions south/west, south/east etc. ) between two adjacent cells. The algorithm produces a diagonally biased perfect maze which in other words is a random binary tree. For building the whole maze algorithm doesn't require holding the state of the whole grid. The algorithm only looks at one cell at a time. The time complexity for the Binary Tree generator is $O(n)$. Below pseudocode for a Binary Tree algorithm.
+The Binary Tree algorithm is the simplest algorithm for generating a maze. In a given grid, for each cell algorithms decides whether to carve a passage north or east (or any two other directions south/west, south/east etc. ) between two adjacent cells. The algorithm produces a diagonally biased perfect maze which in other words is a random binary tree. For building the whole maze algorithm doesn't require holding the state of the whole grid. The algorithm only looks at one cell at a time. The time complexity for the Binary Tree generator is $O(|V|)$. Below pseudocode for a Binary Tree algorithm.
 \begin{lstlisting}[caption={Pseudocode for a Binary Tree Algorithm}]
 \begin{algorithm}
 \FOREACH cell in the grid
@@ -233,7 +266,7 @@ The Binary Tree algorithm is the simplest algorithm for generating a maze. In a 
 \end{algorithm}
 \end{lstlisting}
 \subsection{Aldous-Broder}
-The Aldous-Broder is a well-known algorithm to generate uniform spanning trees (USTs) based on random walks. This means that the maze is perfect and unbiased.\cite{4}In a given grid the algorithm randomly chooses any cell, and for this cell randomly chooses a neighbour and if this neighbour wasn't previously visited algorithm links it to the prior cell. Repeat until every cell has been visited. In order to build a spanning tree, the random walk needs to visit every vertex of the graph at least once. The time complexity for the Aldous - Broder generator is $O(n^3)$. Below pseudocode for an Aldous- Broder algorithm.
+The Aldous-Broder is a well-known algorithm to generate uniform spanning trees (USTs) based on random walks. This means that the maze is perfect and unbiased.\cite{4}In a given grid the algorithm randomly chooses any cell, and for this cell randomly chooses a neighbour and if this neighbour wasn't previously visited algorithm links it to the prior cell. Repeat until every cell has been visited. In order to build a spanning tree, the random walk needs to visit every vertex of the graph at least once. The time complexity for the Aldous - Broder generator is $O(|V|^3)$. Below pseudocode for an Aldous- Broder algorithm.
 \begin{lstlisting}[caption={Pseudocode for a Aldous-Broder algorithm}]
 \begin{algorithm}
 \STATE let cell = grid.get_random_cell();
@@ -249,6 +282,22 @@ The Aldous-Broder is a well-known algorithm to generate uniform spanning trees (
 \end{algorithm}
 \end{lstlisting}
 \subsection{Recursive Backtracker}
+The Recursive Backtracker is one of a Depth First Search algorithm wich may be also used for generationg mazes. It's generates perfect mazes with a very small ratio of dead ends in maze. It's main disadvantage is that it requiers a lot of memory so it's not fast nor efficient. The algorithm starts at randolmy selected cell, and carvs it's way, until it must "turn around" and backtracks to nearest "not carved yet" cell. This process continues until we have discovered all the vertices that are reachable from the original source vertex. The time complexity for Recursive-Backtracker generator is $O(|V|+|E|)$. Below pseudocode for a Recursive-Backtracker algotithm.
+\begin{lstlisting}[caption={Pseudocode for a Recursive-Backtracker algorithm}]
+	\begin{algorithm}
+	\STATE let cell = grid.get_random_cell();
+	\STATE let stack = [cell];
+	\WHILE stack.lenght > 0
+	\STATE let current_cell = stack[stack.lenght - 1];
+	\STATE let neighbors = current.neighbors();
+		\IF neighbors.length == 0
+			\STATE stack.pop()
+		\ELSE 
+			\STATE let neighbor = neighbors[random]
+			\STATE current.make_link(neighbor)
+			\STATE stack.push(neighbor)	
+	\end{algorithm}
+	\end{lstlisting}
 \section{Maze Solving Algorithms}
 \subsection{Breadth-First Search Algorithm - BFS}
 BFS is one of the simplest algorithms for searching a graph. As already mentioned we can consider each maze as a graph so from now on we will call 
@@ -275,12 +324,49 @@ As the algorithm floods the graph we say it uses a greedy strategy.
 	\end{algorithm}
 	\end{lstlisting}
 \subsection{A* Algorithm}
+$A^*$ algorithm is one of the most path finding algorithm. It uses two fuction, which derives it from the previously described algorithms, which uuses only one function. $A^*$ combines the information that Dijkstra’s Algorithm uses meaning choosing the nodes which are close to the starting point, and implementing new type of information which is heuristic meaning choosing nodes which are estimated to be close to ending point. In the standard terminology used when talking about A*, g(n) represents the exact cost of the path from the starting point to any vertex n, and h(n) represents the heuristic estimated cost from vertex n to the goal. in each loop the algorithm minimize the following function:
+\begin{equation}
+neighbour.f = neighbour.g + neigbour.h
+\end{equation}
+\textbf{Where:}
+neigbour.g = q.g + distance between q and neighbour\\
+is a sum of distances from the starting point to the current node, and the distance from current node to neighbour.	\\
+\newline
+In maze problems we have a really quick accecs to basic heuristic functions beacouse of a graph implemented as a grid. In this paper We will be using one heuristic method which will be a Manhattan Distance. Beacouse we are using only the NSWE moves in discussed mazes, the Manhattan-Distance is best solution.
+Manhatan Distance from neigbour cell to end cellis given as a:
+\begin{equation}
+neighbour.h = |end\_cell.x - neigbour.x| + |end\_cell.y - neigbour.y|
+\end{equation}
+\begin{lstlisting}[caption={Pseudocode for a Dijkstra's algorithm}]
+	\begin{algorithm}
+	\STATE let openlist = new Array();
+	\STATE let closelist = new Array();
+	\STATE let starcell = maze.startcell;
+	\STATE let goalcell = maze.goalcell;
+	\STATE starcell.set_g_score();
+	\STATE startcell.set_f_score();
+	\STATE openlist.push(startcell)
+	\STATE let finished = false;
+	\WHILE (!finished)
+		\STATE let currentcell = openlist    
+		.find_cell_with_lowest_fvalue();
+		\STATE let neighbours = currentcell.get_links();
+			\IF currentcell == goalcell
+				finished = true;
+				closelist.push(currentcell);
+			\ELSE 
+			\FOREACH neighbour => neigbours	
+			\IF inEitherList(openlist, closelist)
+				\STATE g_score = calulate_gscore(cell);
+				\STATE f_score = calculate_fscore(cell);
+				\STATE parent = setParent(cell);
+				\STATE openlist.push(cell)
+			\ENDIF
+			closelist.push(currentcell);
+			openlist.remove(currentcell);
+	    	\ENDFOREACH
+	\end{algorithm}
+	\end{lstlisting}
 
-\begin{lstlisting}
-
-\end{lstlisting}
 
 
-
-
-%---------------------------------------------------------------------------
