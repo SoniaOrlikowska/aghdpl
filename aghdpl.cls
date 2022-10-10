@@ -82,10 +82,10 @@
 % SEC:   Polecenia wymagane m.in. do generowania strony tytułowej
 % =============================================================================
 
-\def\shorttitlePL#1   {\gdef\@shorttitlePL{#1}}
+%\def\shorttitlePL#1   {\gdef\@shorttitlePL{#1}}
 \def\shorttitleEN#1   {\gdef\@shorttitleEN{#1}}
 \def\shortauthor#1    {\gdef\@shortauthor{#1}}
-\def\titlePL#1        {\gdef\@titlePL{#1}}
+%\def\titlePL#1        {\gdef\@titlePL{#1}}
 \def\titleEN#1        {\gdef\@titleEN{#1}}
 \def\faculty#1      {\gdef\@faculty{#1}}
 \def\thesistype#1   {\gdef\@thesistype{#1}}
@@ -97,19 +97,19 @@
 %------------------------------------------------------------------------------
 
 \IfStrEqCase{\ThesisLanguage}{
-	{pl}{%
-		\def\thesisheaders{
-			\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitlePL}}
-		}
-		
-		\def\thesistable{
-			\begin{tabular}{p{45mm}l}
-				Autor: & {\itshape \@author}\\[-1mm]
-				Kierunek studiów: & {\itshape \@degreeprogramme}\\[-1mm]
-				Opiekun pracy: & {\itshape \@supervisor}\\
-			\end{tabular}
-		}
-	}
+	%{pl}{%
+	%	\def\thesisheaders{
+	%		\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitlePL}}
+	%	}
+	%	
+	%	\def\thesistable{
+	%		\begin{tabular}{p{45mm}l}
+	%			Autor: & {\itshape \@author}\\[-1mm]
+	%			Kierunek studiów: & {\itshape \@degreeprogramme}\\[-1mm]
+	%			Opiekun pracy: & {\itshape \@supervisor}\\
+	%		\end{tabular}
+	%	}
+	%}
 	{en}{%
 		\def\thesisheaders{
 			\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitleEN}}
@@ -157,8 +157,8 @@
 		
 		{\sffamily\Large\itshape
 			\IfStrEqCase{\ThesisLanguage}{%
-				{pl}{\@titleEN}
-				%x{en}{\@titlePL}
+				{en}{\@titleEN}
+				%x{pl}{\@titlePL}
 			}
 		}
 		\vspace{\fill}
@@ -324,15 +324,15 @@
 	% Ustawienia związane z polskimi normami dla bibliografii.
 	maxbibnames=3,
 	% Wybór silnika generowania bibliografii:
-%	backend=bibtex  % - jeżeli używamy BibTeX-a
-	backend=biber   % - jeżeli używamy biber-a
+	backend=bibtex  % - jeżeli używamy BibTeX-a
+%	backend=biber   % - jeżeli używamy biber-a
 ]{biblatex}
 
-\RequirePackage{csquotes}
+%\RequirePackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{polish}
+%\DeclareQuoteAlias{croatian}{polish}
 
-\addbibresource{bibliografia.bib}
+%\addbibresource{bibliografia.bib}
 
 % Nie wyświetlaj wybranych pól.
 %\AtEveryBibitem{\clearfield{note}}

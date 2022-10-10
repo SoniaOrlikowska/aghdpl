@@ -4,9 +4,25 @@ It is important to precisly define what complexity means and the implication of 
 But there could be also another approach: \textit{how difficult it is to generate such maze}, meaning how rare is a particular maze. Below I will try to collect all major definition of maze and graphs complexity, and discuss why it's important to know the complexity of a maze problem. 
 And what are the tools to study this complexity. Further in chapter 5 I will also provide a deeper analisis. {coś tu dopisać jeszcze bo nie brzmi to dobrze }
 \section{Complexity measures in Graph Theory}
-\subsection{Statistical Randomness}
-\subsection{Algoritmic Randomness}
-\subsection{Theory of Randomness}
+In below part I will present the approaches derived from graph theory which allows to describe and measure complexity of a graph. 
+Conventionally graph complexity in graph theory is defined by measures such as degree distribution, clustering coefficient, edge density, community.Another approach which derived from classical information theory is to 
+generate graphs with some paricularieties while being random in all other respects and then compare and decide is this particular characteristic is typical among group of graphs. There is also a recent advanced idea to use a \textit{principle of maximum entropy} or Maxent to estimate the algoritmic complexity of a graph. The main idea 
+of maximum entropy concept is that the more statistical random graph is the more typical. \cite{HeZeni}
+\begin{definition}\textbf{A Degree Distribution}  $P(k) = \frac{n_k}{n}$ is defined as a proportion of vertex with a degree $k$ to all vertices in a graph. \end{definition}  
+\begin{definition}\textbf{A Clustering Coeficient} $C_i$ is defined as a proportion of vertex links to vertex possible links. The coefficient for an undirected graph might be given by $C_i = \frac{k_i(k_i-1)}{2}$ where $k_i$ are the neighbours of vertex $v_i$. The average clustering coefficient is given by $\bar{C} = \frac{1}{n}\sum_{n = 1}^{n} C_i $\end{definition}
+\begin{definition}\textbf{A Community} is a subset of vertices denseley connected respectively, and loosely connected to vertices in other communieties in the same graph.\end{definition}
+\begin{definition}\textbf{A Graph Entropy} "Graph entropy measures represent information-theoretic measures for characterizing networks quantitatively"\cite{MaDehm}. It is the most important and difficult measure to determine graph complexity. There is no "good enough" definition of graph entropy which could be applied to all different kind of problems. Searching new ways of calculating the entorpy of the graph systems is a huge challange for scientist from mathematics, physics, bilogy, chemistry, coputer and sociology sciences. We can didistinguish 3 major fields of graph entropy: The Classical Entropy, The Deterministic Entropy and The Propabilistic Entriopyt. All three have different application, sometimes very specific.  As a result, I will not try to make here a general definition of graph entropy, but instead in the next subsection I will provide some more details abous Shannon's entropy measure which is one of the simplest method and will  be used later in this paper to calulate maze complexity. 
+\end{definition}  
+\subsection{Shannon Entropy}
+Shanon entropy derives directly from Boltzmann entropy in thermodynamics. "Shannon’s concept of information entropy quantifies the average number of bits needed to store or communicate a message."\cite{HeZeni}. In a sense of complexity, the Shanonn entropy measures, how complex the string of a graph problem must be to avoid loosing any information about it's state. The main concept is that the information buid by $n$ different symbols, can not be stored in lest than $log(n)$ bits.
+Shanon entropy of the object $M(R, p(x_i))$ is given by ()\cite{HeZeni}:
+\begin{equation}
+H(M) = - \sum_{n = 1}^{n} p(x_i)\log_2 p(x_i)
+\end{equation}
+\textbf{Where:}\\
+$R$ is set of possible outcomes, eh. All posiible adjacency matrix of size $m$\\
+$p(x_i)$ is a propability of outcome $R$,\\
+$n= |R|$\\
 \section{Complexity measures in Mazes}
 In this section I will discuss the characteristics which influences the complexity of a maze. I will try to make an overview of different approaches and will try to compare them. 
 One of the main aim of this work is a analysis and research to define and describe different measures of maze complexity problem. 
@@ -68,25 +84,6 @@ One of the main aim of this work is a analysis and research to define and descri
             \end{figure}
 \end{description}
 
-\subsection{Time Complexity of maze generators}
-
-  \begin{table}[!h]
-    \begin{center}
-  \begin{tabular}{ |p{6cm}||p{3cm}|  }
-    \hline
-    Maze Generator Algorithm  Name& Time Complexity\\
-    \hline
-    Binary Tree  & $O(|V|)$\\
-    Aldous-Broder& $O(|V|^3)$ \\
-    Recursive- Backtracker& $O(|V|+|E|)$\\
-    \hline
-   \end{tabular}
-   \caption{\label{tab:table-name}Your caption.}
-  \end{center}
-  \end{table}
-
-
-
 \subsection{McClendon Measure}
 There are not many sources indicating a quantitative study of the measure of maze complexity. One of the most cited work in this field is a McClendon study of maze diffuculty and complexity.
 McClendon's work treats about maze complexity and difficulty in continous measure using continuum theory.
@@ -122,7 +119,29 @@ In this paper we are using the square grid to generate and solve mazes. As a res
 \textbf{Where:}\\
 $h(i)_l$ is the total length of the hallway,\\
 $\mathcal{T}$ is the total number of L turns in the hallway, and each L turn is 90$^\circ$.
-%typical path lenght
-%how many visited cells during solution
+
 %porownac to co wyjdzie z tym wykresem w tej pracy 
 
+\subsection{Time Complexity of maze generators}
+
+  \begin{table}[!h]
+    \begin{center}
+  \begin{tabular}{ |p{6cm}||p{3cm}|  }
+    \hline
+    Maze Generator Algorithm  Name& Time Complexity\\
+    \hline
+    Binary Tree  & $O(|V|)$\\
+    Aldous-Broder& $O(|V|^3)$ \\
+    Recursive- Backtracker& $O(|V|+|E|)$\\
+    \hline
+   \end{tabular}
+   \caption{\label{tab:table-name}Your caption.}
+  \end{center}
+  \end{table}
+
+\subsection{Distinctivness and uniquness of a maze}
+
+%typical path lenght
+%człowiek a komputer
+%how many visited cells during solution
+%zgodny z heurystyką
