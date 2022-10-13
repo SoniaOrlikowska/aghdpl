@@ -13,7 +13,7 @@ In this paper, I will consider three interesting subgroups of graphs:
  \item[$-$] directed graph,
  \item[$-$] cyclic graph.
  \end{itemize}
- \begin{figure}[h]
+ \begin{figure}[!h]
 	\centering
 	\begin{subfigure}{.35\textwidth}
 	  \centering
@@ -80,7 +80,7 @@ $$A(i,j)=
 Figures 1.2(a) and 1.2(b) are the adjacency matrices of the undirected and directed graphs.
 The adjacency matrix of a graph requires $\varTheta(V^2)$ memory, independent of the number of edges in the graph.
 \end{definition}
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\begin{subfigure}{.35\textwidth}
 	  \centering
@@ -167,7 +167,7 @@ $n$ is a number of nodes in the graph\\
 \begin{definition}\textbf{A Grid} in this paper is considered as a square matrix. Its size defines the size of a maze $n \times n$. The grid keeps the information about each cell and their relative positions in an array.\end{definition}
 \begin{definition}\textbf{A Move} is considered as a transition from one cell to one of its closest neighbours. In this paper, we are using only NSWE moves presented in Figure 1.3. Diagonal moves are forbidden.
 \newline
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[width=.2\linewidth]{moves}
 	\caption{Allowed moves}
@@ -183,23 +183,24 @@ In this paper, I will be considering only 2D mazes on a rectangular grid Figure 
  \end{itemize}
  The perfect maze will be a maze with only one path between any two given nodes, a directed maze will be a maze with some paths directed in a certain direction, and a cyclic maze will be a maze with at least one cycle. 
  \newline
- \begin{figure}[h]
+ \begin{figure}[!h]
 	\centering
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.4\linewidth]{undirected_maze}
+	  \includegraphics[width=.6\linewidth]{undirected_maze}
 	  \caption{An undirected, unweighted, acyclic maze}
 	  \label{fig:sub1}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.4\linewidth]{cyclic_maze}
+	  \includegraphics[width=.6\linewidth]{cyclic_maze}
 	  \caption{A weighted, directed, cyclic maze}
 	  \label{fig:sub2}
 	\end{subfigure}
 	\caption{Examples of different mazes}
 	\label{fig:test}
 	\end{figure}
+	\newline
 If not mentioned otherwise, we assume the start and goal position to always be in the upper-left and lower-right, respectively Figure 1.4.
 \newline	
  \begin{definition}\textbf{A Texture} is a general term that refers to the style of the passages of a maze, such as how long they tend to be and which direction they tend to go. Some algorithms will tend to produce mazes that all have similar textures.\cite{mazes}\end{definition}
@@ -210,13 +211,10 @@ If not mentioned otherwise, we assume the start and goal position to always be i
 
 \section{Maze Generation Algorithms}
 \subsection{Binary Tree}
-
 The Binary Tree algorithm is the simplest algorithm for generating a maze. In a given grid, for each cell algorithm decides whether to carve a passage north or east (or any two other directions south/west, south/east etc. ) between two adjacent cells. The algorithm produces a diagonally biased perfect maze which, in other words, is a random binary tree. For building the whole maze, the algorithm doesn’t require holding the state of the whole grid. The algorithm only looks at one cell at a time. The time complexity for the Binary Tree generator is $O(|V|)$. Below pseudocode for a Binary Tree algorithm.
-
+\newline
 \begin{lstlisting}[caption={Pseudocode for a Binary Tree Algorithm}]
-
 \begin{algorithm}
-
 \FOREACH cell in the grid
 	\STATE let neighbours = [];
 	\STATE neighbours.push(cell.north);
@@ -227,18 +225,19 @@ The Binary Tree algorithm is the simplest algorithm for generating a maze. In a 
 \ENDFOREACH	
 \end{algorithm}
 \end{lstlisting}
-
-\begin{figure}[h]
+\\
+\newline
+\begin{figure}[!h]
 	\centering
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.5\linewidth]{binary1010}
+	  \includegraphics[width=.6\linewidth]{binary1010}
 	  \caption{Binary Tree maze 10 $\times$ 10}
 	  \label{fig:sub1}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.5\linewidth]{binary2020}
+	  \includegraphics[width=.6\linewidth]{binary2020}
 	  \caption{Binary Tree maze 20 $\times$ 20}
 	  \label{fig:sub2}
 	\end{subfigure}
@@ -249,7 +248,7 @@ The Binary Tree algorithm is the simplest algorithm for generating a maze. In a 
 \subsection{Aldous-Broder}
 
 The Aldous-Broder is a well-known algorithm for generating uniform spanning trees (USTs) based on random walks. This means that the maze is perfect and unbiased \cite{INune}. In a given grid, the algorithm randomly chooses any cell, and for this cell randomly chooses a neighbour and if this neighbour wasn’t previously visited, the algorithm links it to the prior cell. It is repeated until every cell has been visited. To build a spanning tree, the random walk needs to visit every vertex of the graph at least once. The time complexity for the Aldous - Broder generator is $O(|V|^3)$. Below pseudocode for an Aldous- Broder algorithm.
-
+\newline
 \begin{lstlisting}[caption={Pseudocode for an Aldous-Broder algorithm}]
 \begin{algorithm}
 \STATE let cell = grid.get_random_cell();
@@ -265,17 +264,18 @@ The Aldous-Broder is a well-known algorithm for generating uniform spanning tree
 \end{algorithm}
 \end{lstlisting}
 
-\begin{figure}[h]
+\newline
+\begin{figure}[!h]
 	\centering
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.5\linewidth]{aldous1010}
+	  \includegraphics[width=.6\linewidth]{aldous1010}
 	  \caption{Binary Tree maze 10 $\times$ 10}
 	  \label{fig:sub1}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.45\textwidth}
 	  \centering
-	  \includegraphics[width=.5\linewidth]{aldous2020}
+	  \includegraphics[width=.6\linewidth]{aldous2020}
 	  \caption{Binary Tree maze 20 $\times$ 20}
 	  \label{fig:sub2}
 	\end{subfigure}
@@ -302,25 +302,24 @@ The Recursive Backtracker is one of the Depth First Search algorithm (DFS) which
 			\STATE stack.push(neighbour)	
 	\end{algorithm}
 	\end{lstlisting}
-
-	\begin{figure}[h]
-		\centering
-		\begin{subfigure}{.5\textwidth}
-		  \centering
-		  \includegraphics[width=.5\linewidth]{recursive1010}
-		  \caption{Binary Tree maze 10 $\times$ 10}
-		  \label{fig:sub1}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-		  \centering
-		  \includegraphics[width=.5\linewidth]{recursive2020}
-		  \caption{Binary Tree maze 20 $\times$ 20}
-		  \label{fig:sub2}
-		\end{subfigure}
-		\caption{Examples of different recoursive-Backtracker mazes}
-		\label{fig:test}
-		\end{figure}
-
+\newline
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=.6\linewidth]{recursive1010.png}
+    \caption{Binary Tree maze 10 $\times$ 10}
+    \label{fig:sub1}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=.6\linewidth]{recursive2020.png}
+    \caption{Binary Tree maze 20 $\times$ 20}
+    \label{fig:sub2}
+    \end{subfigure}
+    \caption{Examples of different recoursive-Backtracker mazes}
+    \label{fig:test}
+    \end{figure}
 \section{Maze Solving Algorithms}
 \subsection{Breadth-First Search Algorithm - BFS}
 BFS is one of the simplest algorithms for searching a graph. As already mentioned, we can consider each maze as a graph, so from now on we will call 
@@ -331,8 +330,10 @@ the smallest number of edges \cite{TCorm}.
 \subsection{Dijkstra Algorithm}
 Dijkstra is a solving algorithm for single-source shortest-path problems. We can apply it on a weighted, directed graph $G=(V, E)$ with a constraint of no negative edges. 
 It repeatedly chooses the closest vertex in $V-S$ to add to set S. 
-Where \texit{S} is a set of vertices whose final shortest-path weights from the source \textit{s} have already been determined.
+Where \textit{S} is a set of vertices whose final shortest-path weights from the source \textit{s} have already been determined.
 As the algorithm floods the graph, we say it uses a greedy strategy.
+\newline
+\\
 \begin{lstlisting}[caption={Pseudocode for a Dijkstra’s algorithm}]
 	\begin{algorithm}
 	\STATE let distances = new Distances();
@@ -349,7 +350,6 @@ As the algorithm floods the graph, we say it uses a greedy strategy.
 
 \subsection{A* Algorithm}
 $A^*$ algorithm is one of the most powerful path-finding algorithm. It uses two functions derived from the previously described algorithms. $A^*$ combines the information that Dijkstra’s Algorithm uses, meaning choosing the nodes which are close to the starting point and implementing a new type of information which is heuristic meaning choosing nodes which are estimated to be close to the ending point. In the standard terminology used when considering A*, g(n) represents the exact cost of the path from the starting point to any vertex n, and h(n) describes the heuristic estimated cost from vertex n to the goal. In each loop, the algorithm minimizes the following function:
-
 \begin{equation}
 neighbour.f = neighbour.g + neighbour.h
 \end{equation}
@@ -362,7 +362,7 @@ Manhattan Distance from neighbour cell to end cell is given as a:
 \begin{equation}
 neighbour.h = |end\_cell.x - neighbour.x| + |end\_cell.y - neighbour.y|
 \end{equation}
-\begin{lstlisting}[caption={Pseudocode for a Dijkstra’s algorithm}]
+\begin{lstlisting}[caption={Pseudocode for a A* algorithm}]
 	\begin{algorithm}
 	\STATE let openlist = new Array();
 	\STATE let closelist = new Array();
