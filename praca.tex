@@ -1,9 +1,14 @@
 \documentclass[language=en,11pt]{aghdpl}
+\usepackage{nomencl}
+\usepackage[symbols,sort=none]{glossaries-extra}
+\makenomenclature%
 \usepackage{tikz} 
 \usepackage[demo]{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{enumitem}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}%
+%-----------------------------------FIRST PAGE-----------------------------------%
 \author{Sonia Orlikowska}
 \titleEN{A comparative analysis of the use of maze solving algorithms on the example of a dedicated web application}
 \thesistype{Master of Science Thesis}
@@ -14,10 +19,39 @@
 \faculty{Faculty of Metals Engineering and Industrial Computer Science}
 \acknowledgements{Serdecznie dziękuję \dots }
 
+%-----------------------------------GLOSSARY-----------------------------------%
 
-\begin{document}
+\glsxtrnewsymbol[description={graph}]{$G$}{\ensuremath{G}}
+\glsxtrnewsymbol[description={set of vertices}]{$V$}{\ensuremath{V}}
+\glsxtrnewsymbol[description={vertex}]{$v$}{\ensuremath{v}}
+\glsxtrnewsymbol[description={vertex neighbour}]{$n$}{\ensuremath{n}}
+\glsxtrnewsymbol[description={set of edges}]{$E$}{\ensuremath{E}}
+\glsxtrnewsymbol[description={adjacency matrix}]{$A(i,j)$}{\ensuremath{A(i,j)}}
+\glsxtrnewsymbol[description={edge weight}]{$w$}{\ensuremath{w}}
+\glsxtrnewsymbol[description={binary tree}]{$B$}{\ensuremath{B}}
+\glsxtrnewsymbol[description={spanning tree}]{$T$}{\ensuremath{T}}
+\glsxtrnewsymbol[description={vertex degree}]{$d(v)$}{\ensuremath{d(v)}}
+\glsxtrnewsymbol[description={degree distribution}]{$P(k)$}{\ensuremath{P(k)}}
+\glsxtrnewsymbol[description={k-degree vertex}]{$n_k$}{\ensuremath{n_k}}
+\glsxtrnewsymbol[description={Shannon entropy}]{$H(M)$}{\ensuremath{H(M)}}
+\glsxtrnewsymbol[description={path length}]{$p_l$}{\ensuremath{p_l}}
+\glsxtrnewsymbol[description={maze}]{$M$}{\ensuremath{M}}
+\glsxtrnewsymbol[description={hallway}]{$h$}{\ensuremath{h}}
+\glsxtrnewsymbol[description={subset of all v in h}]{$W_h$}{\ensuremath{W_h}}
+\glsxtrnewsymbol[description={maze solution}]{$S$}{\ensuremath{S}}
+\glsxtrnewsymbol[description={maze starting vertex}]{$p$}{\ensuremath{p}}
+\glsxtrnewsymbol[description={maze goal vertex}]{$q$}{\ensuremath{q}}
+
+%\glsxtrnewsymbol[description={maze solution}]{$\gamma$}{$\gamma$}
+
+%-----------------------------------NEW THEOREM SET UP-----------------------------------%
+
 \newtheorem{theorem}{Theorem}
+%\theorembodyfont{\rm}
 \newtheorem{definition}{Definition}
+%-----------------------------------BEGINING OF THE DOCUMENT-----------------------------------%
+\begin{document}
+
 	%\titlepages
 	%\begin{abstract}
 	%	Abstract
@@ -25,6 +59,9 @@
 	%\RedefinePlainStyle
 	%\setcounter{tocdepth}{2}
 	\tableofcontents
+
+	\printunsrtglossary[type=symbols,style=long,title={List of Symbols}]
+
 	%\include{chapter1}
 	\include{chapter2}
 	%\include{chapter3}
