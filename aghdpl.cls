@@ -404,8 +404,8 @@
 }
 
 \AtBeginDocument{
-	\renewcommand{\tablename}{Tabela}
-	\renewcommand{\figurename}{Rys.}
+	\renewcommand{\tablename}{Table}
+	\renewcommand{\figurename}{Figure}
 }
 
 % =============================================================================

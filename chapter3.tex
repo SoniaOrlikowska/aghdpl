@@ -1,6 +1,49 @@
 \chapter{Maze solving real live related problems}\label{cha:background}
+This chapter presents some of the most interesting and widely used real-life applications of maze-solving algorithms presented in this work. 
+As studying the algorithms might be interesting in itself, the examples below prove that it might be beneficial and necessary when thinking about 
+improving and inventing new technologies. The following examples are largely based on Graph Theory, so they are considered in the context of 
+the algorithms and methods presented in this paper. Although each of these problems has already been thoroughly described and their practical 
+applications exist, they are still problems for which better, more accurate solutions and analyses are sought.
 \section{Shortest Path Problem}
-\subsection{Navgation}
+The most important application from the point of view of the usefulness of the algorithms described in this paper is the problem of finding the shortest path.
+All described algorithms can solve it, some under certain conditions. The shortest Path Problem as described by Definition 9 emphasises
+finding the shortest connection between two vertices in a graph. This concept is easily applicable to many real-life problems, such as: finding the shortest, most
+convenient path from point A to point B on a map, and solving the routing problem of finding the best path for data package transfer. The concepts of navigation, 
+path planning for robots, or solving routing problems are not yet closed subjects to study. New better, more efficient solutions are being sought. 
+\subsection{Navigation}
+A map may be considered a weighted-directed-cyclic graph. There could be many different paths from city A to city B, some of them use highways, some smaller 
+roads, some roads may go through mountains, and some might be closed, or with heavy traffic. Map navigation is an essential part of people's lives. 
+Studying methods and algorithms which could differentiate the problems by their complexity can contribute to finding new solving methods, which will contribute 
+to creating better, more precise and efficient ways of navigation. Especially in areas where human life or health may be at stake, such as in maritime or inland 
+navigation, where many obstacles must be taken into consideration.\cite{Bałdyga}
 \subsection{Path planning}
-\section{Web page search and page ranking}
-\section{Video games}
+Another example where graph algorithms are widely used and which is a very dynamically developing field of engineering is path planning for robots, drones 
+and autonomous vehicles. Path planning is a robotic problem of finding a path for a robot in a partially known or unknown environment which could also be changing. The most 
+commonly used algorithm in path planning is $A^*$ algorithm \cite{Liu}. The goals of this problem may be different, sometimes it will be finding the shortest route, 
+sometimes the optimal route, sometimes the easiest route, or the fastest route. The most challenging part of path planning is a situation where the environment is not known, 
+and the robot learns about it through sensors trying to get to the destination \cite{Montazeri}. For most of the practical applications, the scenario of an unknown or
+partially unknown environment is more relatable and solution-seeking. Path planning consists also of other problems that must be considered besides finding the shortest path.
+The path planning for robots must evaluate the possibilities of changing the path due to the emergence of additional obstacles. This is the issue of the so-called Canadian Path Traveler
+described by Definition 21. Self-driving robots, vehicles and drones are already in use on and under the ground, underwater but also in space. The study of solving algorithms
+is crucial for finding optimal paths of movement and quick assessment in dynamically changing situations. Another important aspect is also a quick assessment of the
+complexity of a problem to solve. Many aspects of path planning allow good enough solutions (vacuum cleaners), others require more precise ones (warehouse robots), and some require 
+sophisticated solutions (city delivery robots)\cite{Starahip}. Therefore it is important to study the best solution approach for each environment.
+\subsection{Networking}
+Another widely used example which is based on the shortest-path algorithm is OSPF a routing protocol for  IP networks. It is widely used in bigger TCP/IP internetwork, 
+to exchange routing information. It is based on the Dijkstra algorithm, a router sets itself as a root of a network tree and computes the shortest path between each pair 
+of nodes in the network. The SPF algorithm must ensure that routing information is quickly assessed in case of routers are being moved or going down. 
+This feature is known as Fast Convergence. The SPF algorithm also guarantees that the routing tables contain the shortest (least-cost) paths and that routing loops are excluded.\cite{ospf}.
+\section{Other applications of graph algorithms}
+\subsection{Web page scraping}
+Another very popular use of graph algorithms, such as BFS, is web scraping \cite{Nurdin}. Web scraping is a method of web page semi-structured data retrieval. In recent years, it has become a powerful tool
+for many companies to obtain large amounts of information at a low cost. It is an area that is dynamically changing all the time and where two opposing forces are at work. On the one hand,
+giants such as Google or Facebook, which are collecting data from millions of users, try to prevent other companies from using their data out of charge. On the other hand, companies 
+are trying to collect the data that is made available to the public on a mass scale. It creates a need for constant assessment, adaptation and improvement of crawling algorithms.
+\subsection{Video games}
+In the video games industry graph algorithms are commonly used, and sometimes are the backbones of the project itself. There are two main areas where graph algorithms are used. 
+First, for world map creation, maze-generating algorithms are used for creating interesting and challenging maps. Usually, worlds built in computer games are very large and complex.
+The game world maps have several basic functions, firstly they guide all character's paths, secondly, they drive the narrative and game mechanics by challenging their players with movement
+and completing missions in a timed and space chronology. In the modern world of game development, the issue of programming the movement of all characters in 
+the game is a problem closely related to programming maze-solving algorithms. These challenges put a lot of emphasis on the effectiveness of the solutions. 
+Games must run in real-time, usually with very strictly limited CPU capabilities. At the same time, the problems must be interesting and challenging enough 
+to satisfy even the most demanding players. All algorithms described in this work are used in game development.\cite{Candra}

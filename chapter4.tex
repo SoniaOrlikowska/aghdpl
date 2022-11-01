@@ -1,11 +1,11 @@
 \chapter{Maze complexity problems}\label{cha:background}
-One of the main purpose of this \textcolor{red}{thesis} is to discuss complexity of a maze. This chapter will provide a variety of maze and graph complexity definitions which are implemented and compared in Chapter 5. Firstly the complexity measurement methods derived from graph theory will be discussed, 
-next some existing concept of measuring the complexity of a maze. Thinking about a maze and its complexity all different type of features and problems might be considered. 
-It may be the difficulty of finding the way out, or difficulty of moving from point A to point B, or difficulty of generating a particular maze. This chapter will provide a theoretical background of studying the maze complexity and in chapter 5 I will provide a detailed analysis based on examples. 
+One of the main purposes of this \textcolor{black}{thesis} is to discuss the complexity of a maze. This chapter will provide a variety of maze and graph complexity definitions which are implemented and compared in Chapter 5. Firstly the complexity measurement methods derived from graph theory will be discussed, 
+and next some existing concepts of measuring the complexity of a maze. Thinking about a maze and its complexity all different types of features and problems might be considered. 
+It may be the difficulty of finding the way out, or difficulty of moving from point A to point B, or the difficulty of generating a particular maze. This chapter will provide a theoretical background for studying the maze complexity and in chapter 5 I will provide a detailed analysis based on examples. 
 \section{Complexity measures in Graph Theory}
-\textcolor{red}{In this section} I will present the approaches derived from graph theory, which describe and measure the complexity of a graph.
- Conventionally, graph complexity in graph theory is evaluated by a degree distribution, a clustering coefficient, an edge density, a community. Another approach which derived from classical information theory is to generate graphs with some particularities while being random in all other aspects and then compare and decide whether a particular characteristic is typical among group of graphs or not.
-There is also a recent, advanced idea to use \textcolor{red}{a principle of maximum entropy} to estimate the algorithmic complexity of a graph. The main idea of maximum entropy concept is that the more statistically random graph is, the more typical. \cite{Zenil}. 
+\textcolor{black}{In this section} I will present the approaches derived from graph theory, which describe and measure the complexity of a graph.
+ Conventionally, graph complexity in graph theory is evaluated by a degree distribution, a clustering coefficient, an edge density, and a community. Another approach derived from classical information theory is to generate graphs with some particularities while being random in all other aspects and then compare and decide whether a particular characteristic is typical among a group of graphs or not.
+There is also a recent, advanced idea to use \textcolor{black}{a principle of maximum entropy} to estimate the algorithmic complexity of a graph. The main idea of the maximum entropy concept is that the more statistically random graph is, the more typical. \cite{Zenil}. 
 Studying the complexity of a graph is an important part of understanding it. By studying the complexity, we are acquiring knowledge about the system, how it could evolve, what are bottlenecks and variabilities, and how we can solve the problems posed by the system. Each application may understand the complexity differently. 
 Each graph system, network and maze will cause different challenges and solutions to it. 
 \subsection{Outlining Graph Parameters}
@@ -19,10 +19,10 @@ P(k) = \frac{n_k}{n}
 \bar{C} = \frac{1}{n}\sum_{n = 1}^{n} C_i
 \end{equation}
 \end{definition}
-\begin{definition}\textbf{A Graph Entropy} “Graph entropy represents information-theoretic measures for characterizing networks quantitatively”\cite{Dehmer}. \emph{It combines graph informations and probabilistic distribution of vertices \cite{Changiz}. We can distinguish 3 major fields of graph entropy: The Classical Entropy, The Deterministic Entropy and The Probabilistic Entropy. All three have different application, sometimes specific.}\end{definition}
+\begin{definition}\textbf{A Graph Entropy} “Graph entropy represents information-theoretic measures for characterizing networks quantitatively”\cite{Dehmer}. \emph{It combines graph information and probabilistic distribution of vertices \cite{Changiz}. We can distinguish 3 major fields of graph entropy: Classical Entropy, Deterministic Entropy and Probabilistic Entropy. All three have different applications, sometimes specific.}\end{definition}
 \subsection{Shannon Entropy}
 Shanon entropy derives directly from Boltzmann entropy in thermodynamics. “Shannon’s concept of information entropy quantifies the average number of bits needed to store or communicate a message.”\cite{Zenil}. Studying complexity, the Shannon entropy measures how complex the string of a graph problem must be to avoid losing any information about its state. The main concept is that the information is built by $n$ different symbols and can not be stored in less than $log(n)$ bits.
-Shanon entropy $H(M)$ of the object $M(R, p(x_i))$ is given by (1.3)\cite{HeZeni}:
+Shanon entropy $H(M)$ of the object $M(R, p(x_i))$ is given by (1.3)\cite{Zenil}:
 \begin{equation}
 H(M) = - \sum_{r = 1}^{r} p(x_i)\log_2 p(x_i)
 \end{equation}
@@ -31,28 +31,28 @@ $R$ is a set of possible outcomes, e.g.  All possible adjacency matrix of size $
 $p(x_i)$ is a probability of outcome $R$,\\
 $r= |R|$\\
 \section{Maze Complexity Measures}
-This section, summarize the characteristics which impacts the complexity of a maze. It provides an overview of different approaches and try to compare them. 
+This section, summarize the characteristics which impact the complexity of a maze, such as maze size, average path lenght, density, McClendon complexity measure. It provides an overview of different approaches and tries to compare them. All parameters presented in this chapter are evaluated in Chapter 5.
 \subsection{Independant Maze Parameters}
-Size is one of the most indisputable complexity factors is of a maze. Maze is described as per Definition 20.\textcolor{}{ In Picture 2.1 two mazes with different size are presented. Both are generated by the author of this work using the Aldous-Broder Algorithm described in Listing 1.2.} It is almost too easy to think that a small maze is a simple maze, and a huge maze is a difficult one.
+Size is one of the most indisputable complexity factors of a maze. A maze is described as per Definition 20.\textcolor{}{ In Picture 4.1 two mazes with different sizes are presented.} It is almost too easy to think that a small maze is a simple maze, and a huge maze is a difficult one.
 \begin{figure}[!h]
     \centering
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.5\linewidth]{66}
-    \caption{An Aldous-Broder maze size $6 \times 6$}
+    \caption{}
 \label{fig:sub1}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.5\linewidth]{1818}
-    \caption{An Aldous-Broder maze size $18 \times 18$}
+    \caption{}
 \label{fig:sub2}
     \end{subfigure}
-    \caption{Examples of different size mazes}
+    \caption{Examples of different size mazes. In picture (a) it is an example of the Aldous- Broder maze of size 6 $\times$ 6, in picture (b) of size 18 $\times$ 18 \\ Source: Developed by the author,  based on Aldous - Broder Algorithm Listing 1.2 }
 \label{fig:test}
 \end{figure}
 \newline
-Another key characteristic determining the complexity of a maze is the average length $\bar{p_l}$ of the paths in a maze. The longer the path, the bigger the risk of following a faulty road to a solution. \textcolor{red}{Path is given by Definition 8}. Its begining is always a start cell and it leads to each dead-end in acyclic mazes. In cyclic mazes, paths can be infinite. \textcolor{red}{In Figure 2.2 two mazes of the same size but different average path lenghts are presented. Mazes in Figure 2.2 are generated by author of this work using algorithms described in Listings 1.1 and 1.2}.
+Another key characteristic determining the complexity of a maze is the average length $\bar{p_l}$ of the paths in a maze. The longer the path, the bigger the risk of following a faulty road to a solution. \textcolor{black}{Path is given by Definition 8}. Its beginning is always a start cell and it leads to each dead-end in acyclic mazes. In cyclic mazes, paths can be infinite. \textcolor{black}{In Figure 4.2 two mazes of the same size but different average path lengths are presented}.
 \newline
 \begin{figure}[!h]
 \centering
@@ -65,14 +65,14 @@ Another key characteristic determining the complexity of a maze is the average l
 \begin{subfigure}{.5\textwidth}
 \centering
 \includegraphics[width=.5\linewidth]{binary}
-\caption{A Binary Tree maze with }
+\caption{}
 \label{fig:sub2}
 \end{subfigure}
-\caption{Examples of different average path length mazes. \textcolor{red}{In picture (a) it's an example of Aldous-Broder maze with $\bar{p}_l = 9.42$. In picture (b) it's an example of Binary- Tree maze with $\bar{p}_l = 10.8$}}
+\caption{Examples of different average path length mazes. \textcolor{black}{In picture (a) it's an example of the Aldous-Broder maze with $\bar{p}_l = 9.42$. Picture (b) it's an example of a Binary- Tree maze with $\bar{p}_l = 10.8$\\ Source: Developed by the author,  based on Aldous - Broder Algorithm Listing 1.1 and 1.2 }}
 \label{fig:test}
 \end{figure}
 
- Density for an acyclic graph is given by the equation (\ref{acyclic_density}), and density for cyclic maze is given by \textcolor{red}{the equation} (\ref{cyclic_density})\cite{SBorg}. It describes the ratio between the number of all possible connections and the existing number of connections \textcolor{red}{(edges)}.\textcolor{red}{In the Picture 2.3 two mazes with different desity are presented. Mazes were generated by the author.}
+ Density for an acyclic graph is given by the equation (\ref{acyclic_density}), and density for a cyclic maze is given by \textcolor{black}{the equation} (\ref{cyclic_density})\cite{SBorg}. It describes the ratio between the number of all possible connections and the existing number of connections \textcolor{black}{(edges)}.\textcolor{black}{In Picture 4.3 two mazes with different densities are presented.}
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -87,16 +87,16 @@ Another key characteristic determining the complexity of a maze is the average l
 \caption{}
 \label{fig:sub2}
 \end{subfigure}
-\caption{\textcolor{red}{Examples of different density mazes. In the Picture (a) maze with density $= 0.40$ is presented, and in Picture (b) maze with densisty $ = 0.50$}}
+\caption{\textcolor{black}{Examples of different density mazes. In Picture (a) maze with density $= 0.40$ is presented, and in Picture (b) maze with density $ = 0.50$. Source: developed by the author}}
 \label{fig:test}
 \end{figure}
 
 \newpage
 \subsection{McClendon Measure}
-There are few sources indicating a quantitative study of the measure of maze complexity. One of the most cited work in this field is a McClendon \textcolor{red}{\cite{McClendon}} study of maze difficulty and complexity. 
-McClendon’s work treats about maze complexity and difficulty in continuous measure using continuum theory. Main presuppositions of the work are that the maze is a perfect maze type and there are two distinguished pairs of points $(p,q)$ in the maze $M$ called gates. Where $p$ is an entrance and $q$ is an exit.  Hallways  $h$ build a maze. 
-Where hallways are a subset $K$ of $M$ with the \textcolor{red}{$d(v) = 2$}. A subset $W_h = {w_1,w_2,\ldots, w_n}$ of $h$ incorporates all points of $h$. 
-A trail is a path in the maze build by hallways. The branch is any trail intersecting the solution $S$ of a maze. Each branch in $M$ is connected to $S$ by a point $v_i$ in $I$ which is an intersections set $I = {v_1,v_2,\dots, v_n}$. The McClendon’s complexity of a hallway $h$ is given by:\\
+There are few sources indicating a quantitative study of the measure of maze complexity. One of the most cited works in this field is a McClendon \textcolor{black}{\cite{McClendon}} study of maze difficulty and complexity. 
+McClendon’s work treats maze complexity and difficulty in a continuous measure using continuum theory. The main presuppositions of the work are that the maze is a perfect maze type and there are two distinguished pairs of points $(p,q)$ in the maze $M$ called gates. Where $p$ is an entrance and $q$ is an exit.  Hallways  $h$ build a maze. 
+Where hallways are a subset $K$ of $M$ with the \textcolor{black}{$d(v) = 2$}. A subset $W_h = {w_1,w_2,\ldots, w_n}$ of $h$ incorporates all points of $h$. 
+A trail is a path in the maze built by hallways. The branch is any trail intersecting the solution $S$ of a maze. Each branch in $M$ is connected to $S$ by a point $v_i$ in $I$ which is an intersections set $I = {v_1,v_2,\dots, v_n}$. The McClendon’s complexity of a hallway $h$ is given by:\\
 \begin{equation}
 \gamma(h) = D(h)\sum_{n = 1}^{n} \frac{\theta(w_i)}{d(w_i)\cdot \pi}
 \end{equation}
@@ -113,15 +113,15 @@ The McClendon’s complexity of a Maze $M$ is given by:\\
 $\gamma(S)$ is a complexity of a solution of the maze,\\
 $\gamma(B_i) = \sum_{n = 1}^{n} \gamma(h_i)$ is a complexity of a branch $B_i$.\\
 \newline 
-\textcolor{red}{Using the equation 2.5 } requires knowledge about the solution of the maze. To avoid this, we should use the extrinsic approximation of the above method which is given by:\\
+\textcolor{black}{Using the equation 2.5 } requires knowledge about the solution of the maze. To avoid this, we should use the extrinsic approximation of the above method which is given by:\\
 \begin{equation}
 \gamma(M) \approx \log \bigl[\sum_{n =1}^{n}\gamma(h_i)\bigr]
 \end{equation}
 \\
 \textbf{Where:}\\
-\textcolor{red}{$\gamma(h_i)$ is the complexity of $h_i$}\\
+\textcolor{black}{$\gamma(h_i)$ is the complexity of $h_i$}\\
  \newline
-In this \textcolor{red}{thesis} we are using the square grid to generate and solve mazes. As a result of \textcolor{red}{a} uniform grid, the McClendon measure will be simplified, and calculated as:
+In this \textcolor{black}{thesis} we are using the square grid to generate and solve mazes. As a result of \textcolor{black}{a} uniform grid, the McClendon measure will be simplified, and calculated as:
 \begin{equation} 
 \gamma(M) \approx \log \bigl[\sum_{n =1}^{n}\frac{h(i)_l\cdot \mathcal{T}}{2}\bigr]
 \end{equation}
@@ -130,9 +130,9 @@ In this \textcolor{red}{thesis} we are using the square grid to generate and sol
 $h(i)_l$ is the total length of the hallway,\\
 $\mathcal{T}$ is the total number of L turns in the hallway, and each L turn is 90$^\circ$.%porownac to co wyjdzie z tym wykresem w tej pracy 
 \subsection{Other approaches to delineate maze complexity }
-\textcolor{red}{In sections 2.1 and 2.2 different quantitative measures to define maze complexity were disscused}. In this section two descriptive methods determining the difficulty of the maze are presented.\textcolor{red}{ Baised mazes and time complexity of maze generators may be considered as premises to reduced algorithmic randomnes. This work will try to verify if those premises correlate with time required to solve a maze, or it's McClendon’s complexity. } \\ \newline
+\textcolor{black}{In sections 2.1 and 2.2 different quantitative measures to define maze complexity were discussed}. In this section, two descriptive methods determining the difficulty of the maze are presented.\textcolor{black}{ Biased mazes and time complexity of maze generators may be considered as premises to reduced algorithmic randomness. This work will try to verify if those premises correlate with the time required to solve a maze, or it's McClendon’s complexity. } \\ \newline
 \textbf{Time Complexity of maze generators}\\
-Looking at time complexity of maze generators we can compare them and  analyze whether the solution time depends on the time complexity. Below in Table 1.1 time complexity of different maze generator is presented. The analysis of the relation between time complexity and solution time is presented in Chapter 5.\\
+Looking at time complexity of maze generators we can compare them and analyze whether the solution time depends on the time complexity. Below in Table 1.1 time complexity of different maze generators is presented. The analysis of the relation between time complexity and solution time is presented in Chapter 5.\\
 \begin{table}[!h]
 \begin{center} 
 \begin{tabular}{ |p{6cm}||p{3cm}| } 
@@ -145,9 +145,9 @@ Recursive- Backtracker\cite[Puntambekar]& $O(|V|+|E|)$\\
  \end{table}
  \newline
  \newline
-\textbf{Uniquness and Distinctivness of a Maze}\\
-Another approach of describing a maze might be evaluating it uniqueness and distinctivens. For this purpose, it is possible to study how complicated the algorithm generating a given maze must be and how statistically often a specific set of features occurs. One of the methods may be the parameterization of the maze by classic measures as density distribution or average path length and testing how often they appear in a specific configuration. Another method could be to look for biased features. Biased features are some peculiarities of the maze which are visible repeating structures.
-Good examples of biased maze might be a binary tree algorithm, which tends to create a visible diagonal intersections Figure 2.4(a) , and two perpendicular corridors at the edges of the maze. On the other hand there are mazes generated  with Adlous- Broder Algorithm, where no specific bias are visible Figure 2.4(b).
+\textbf{Uniquness and Distinctiveness of a Maze}\\
+Another approach to describing a maze might be evaluating its uniqueness and distinctiveness. For this purpose, it is possible to study how complicated the algorithm generating a given maze must be and how statistically often a specific set of features occurs. One of the methods may be the parameterization of the maze by classic measures such as density distribution or average path length and testing how often they appear in a specific configuration. Another method could be to look for biased features. Biased features are some peculiarities of the maze which are visible repeating structures.
+Good examples of a biased maze might be a binary tree algorithm, which tends to create visible diagonal intersections Figure 4.4(a), and two perpendicular corridors at the edges of the maze. On the other hand, there are mazes generated with Aldous- Broder Algorithm, where no specific biases are visible Figure 4.4(b).
 \newline
 \begin{figure}[!h]
     \centering
@@ -163,10 +163,6 @@ Good examples of biased maze might be a binary tree algorithm, which tends to cr
     \caption{}
     \label{fig:sub2}
     \end{subfigure}
-    \caption{\textcolor{red}{Examples of different tectures in mazes. In the Picture (a) maze generated with  Binary Tree Algorithm with visible diagonal tecture, and in Picture (b) maze generated with Adlous-Broder Algorithm without any visible tecture. Mazes in both pictures were generated by the author using the algorithms described in Listings 1.1 and 1.2}}
+    \caption{\textcolor{black}{Examples of different textures in mazes. In Picture (a) maze was generated with  Binary Tree Algorithm with a visible diagonal texture, and in Picture (b) maze was generated with the Aldous-Broder Algorithm without any visible texture. Mazes in both pictures were generated by the author using the algorithms described in Listings 2.1 and 2.2}}
     \label{fig:test}
     \end{figure}
- %typical path lenght
- %człowiek a komputer
- %how many visited cells during solution
- %zgodny z heurystyką

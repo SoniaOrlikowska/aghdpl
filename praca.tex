@@ -1,4 +1,4 @@
-\documentclass[language=en,11pt]{aghdpl}
+\documentclass[language=en,11pt, openany]{aghdpl}
 \usepackage{nomencl}
 \usepackage[symbols,sort=none]{glossaries-extra}
 \makenomenclature%
@@ -26,6 +26,7 @@
 \glsxtrnewsymbol[description={vertex}]{$v$}{\ensuremath{v}}
 \glsxtrnewsymbol[description={vertex neighbour}]{$n$}{\ensuremath{n}}
 \glsxtrnewsymbol[description={set of edges}]{$E$}{\ensuremath{E}}
+\glsxtrnewsymbol[description={edge}]{$e$}{\ensuremath{e}}
 \glsxtrnewsymbol[description={adjacency matrix}]{$A(i,j)$}{\ensuremath{A(i,j)}}
 \glsxtrnewsymbol[description={edge weight}]{$w$}{\ensuremath{w}}
 \glsxtrnewsymbol[description={binary tree}]{$B$}{\ensuremath{B}}
@@ -52,7 +53,7 @@
 %-----------------------------------BEGINING OF THE DOCUMENT-----------------------------------%
 \begin{document}
 
-	%\titlepages
+	\titlepages
 	%\begin{abstract}
 	%	Abstract
 	%\end{abstract}
@@ -62,11 +63,11 @@
 
 	\printunsrtglossary[type=symbols,style=long,title={List of Symbols}]
 
-	%\include{chapter1}
+	\include{chapter1}
 	\include{chapter2}
-	%\include{chapter3}
+	\include{chapter3}
     \include{chapter4}
-	%\include{chapter5}
+	\include{chapter5}
 	%\include{chapter6}
-	%\include{bibliography}
+	\include{bibliography}
 	\end{document}
