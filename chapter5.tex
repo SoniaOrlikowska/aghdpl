@@ -1,25 +1,23 @@
-\chapter{Practical analysis of maze generators and maze solvers}%\label{cha:background}
-In this Chapter all algorithms described in Chapter 4 are assesed in terms of their runtime and parameters of generated solutions. The purpose is to compare 
-both the maze generators and the solvers and build a framework which could classify which algorithms comply best with each other. Although the runntime of both, the generating
+\chapter{Results, Analysis and Discussion}\label{cha:Results Analysis and Discussion}
+\section{Results}
+\section{Practical analysis of maze generators and maze solvers}
+In this Chapter, all algorithms described in Chapter 4 are assessed in terms of their runtime and parameters of generated solutions. The purpose is to compare 
+both the maze generators and the solvers and build a framework which could classify which algorithms comply best with each other. Although the runtime of both, the generating
 and solving algorithms were measured, it was not the purpose of this work to minimize it. Therefore, the algorithms were implemented in Java Script. It's beyond 
-discussion that the implementation in more low level language would be more efficient, and could lead to building and solving bigger mazes. However, the choice of using
-Java Script for algorithm implementation was dictated by the eagernes of building a web application depending and harness the results of this work. The test were conducted 
-on MacBook Pro with Apple M1 microchip, 8GB RAM and 11.6 macOS Big Sur operating system. All the figures used for analysis was made using the Python GUI application Orange v.3.33.
+discussion that the implementation in a more low-level language would be more efficient, and could lead to building and solving bigger mazes. However, the choice of using
+Java Script for algorithm implementation was dictated by the eagerness of building a web application depending on and harnessing the results of this work. The test was conducted 
+on MacBook Pro with an Apple M1 microchip, 8GB RAM and 11.6 macOS Big Sur operating system. All the figures used for analysis were made using the Python GUI application Orange v.3.33.
 \section{Path and time comparison for different maze solvers}
-In this section three maze solvers are compared in terms of runtime and generated solution. Three algorithms described in Chapter 4 are tested:
-Dijkstra, $A^*$ and BFS, each algorithm was tested in the same way. The runtime measurement program worked as follows, the program generated a random sized maze using one of the three algorithms:
+In this section, three maze solvers are compared in terms of runtime and generated solution. Three algorithms described in Chapter 4 are tested:
+Dijkstra, $A^*$ and BFS, each algorithm was tested in the same way. The runtime measurement program worked as follows, the program generated a random-sized maze using one of the three algorithms:
 Binary Tree, Recursive Backtracker, or Aldous-Broder. Then each solving algorithm one by one was applied to solve the same problem. Mazes were generated with randomly assigned
-size ranging from $5 \times 5$ to $80 \times 80$. The main assuption was to create a square maze with the source cell $p$ at left top corner, and goal cell $q$ at right bottom corner of the maze grid. 
-All solvers could only use the NSWE moves described in Chapter 4. Maze problems usually have a quick access to basic heuristic functions because of a graph implemented as a grid. 
-Because of the assuption that only the NSWE moves are allowed the heuristic method $h(v)$ applied in $A^*$ was the Manhattan Distance. 
+size ranging from $5 \times 5$ to $80 \times 80$. The main assumption was to create a square maze with the source cell $p$ at the left top corner, and goal cell $q$ at the right bottom corner of the maze grid. 
+All solvers could only use the NSWE moves described in Chapter 4. Maze problems usually have quick access to basic heuristic functions because of a graph implemented as a grid. 
+Because of the assumption that only the NSWE moves are allowed the heuristic method $h(v)$ applied in $A^*$ was the Manhattan Distance. 
 \subsection{Perfect, unweighed, acyclic mazes}
-In this section it was tested how the runtime changes for a different size single path, unweighted, acyclic mazes. Each maze generator produced 5k different problemes, which were solved 3 times by each
-maze solvers. No parallelizm was applied, mazes were solved one after another. Weight for each edge was uniform and equaled $e = 1$.
-
-\subsection{Perfect, weighted mazes}
-\subsection{Unweighted mazes with cycles}
-\subsection{Weighted mazes with cycles }
-\section{Comparison of algorithms for solving mazes in terms of the criterion of maze comple}
-\subsection{MacClendon Complexity}
-\subsection{Algorythmic and statistical randomness complexity}
+In this section, it was tested how the runtime changes for a different size single path, unweighted, acyclic mazes. Each maze generator produced 5k different problems, which were solved 3 times by each
+maze solver. No parallelism was applied, and mazes were solved one after another. The weight for each edge was uniform and equalled $e = 1$.
+\subsection{Weighted, directed mazes with cycles}
 \section{Analysis of parameters affecting maze complexity}
+\section{Parametrizing the maze problem for choosing the best solver}
+\section{Conclusion}
