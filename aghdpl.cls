@@ -83,7 +83,7 @@
 % =============================================================================
 
 %\def\shorttitlePL#1   {\gdef\@shorttitlePL{#1}}
-\def\shorttitleEN#1   {\gdef\@shorttitleEN{#1}}
+%\def\shorttitleEN#1   {\gdef\@shorttitleEN{#1}}
 \def\shortauthor#1    {\gdef\@shortauthor{#1}}
 %\def\titlePL#1        {\gdef\@titlePL{#1}}
 \def\titleEN#1        {\gdef\@titleEN{#1}}
@@ -111,9 +111,9 @@
 	%	}
 	%}
 	{en}{%
-		\def\thesisheaders{
-			\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitleEN}}
-		}
+	%	\def\thesisheaders{
+	%		\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitleEN}}
+	%	}
 		
 		\def\thesistable{
 			\begin{tabular}{p{45mm}l}
@@ -147,12 +147,12 @@
 		{\sffamily\Large \@thesistype}
 		\vspace*{9mm}
 		
-		{\sffamily\Large\itshape
-			\IfStrEqCase{\ThesisLanguage}{%
+		%{\sffamily\Large\itshape
+		%	\IfStrEqCase{\ThesisLanguage}{%
 				%{pl}{\@titlePL}
-				{en}{\@titleEN}
-			}
-		}
+			%	{en}{\@titleEN}
+			%}
+		%}
 		\vspace*{1mm}
 		
 		{\sffamily\Large\itshape
@@ -436,5 +436,3 @@
 	%\begin{description}[leftmargin=\eqwheremargin, itemsep=0cm, labelsep=0cm]
 %}
 %{\end{description}}
-
-

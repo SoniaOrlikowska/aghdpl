@@ -20,12 +20,13 @@
 \author{Sonia Orlikowska}
 \titleEN{A comparative analysis of the use of maze solving algorithms on the example of a dedicated web application}
 \thesistype{Master of Science Thesis}
-\supervisor{Magdalena Kopernik, PhD}
+\supervisor{Magdalena Kopernik, PhD, DSc, Assoc. Prof.}
 \degreeprogramme{Industrial Computer Science}
 \date{2022}
 \department{Department of  Applied Computer Science and Modelling}
 \faculty{Faculty of Metals Engineering and Industrial Computer Science}
-\acknowledgements{Serdecznie dziękuję \dots }
+\acknowledgements{Dedicated to the memory of my late brother, Filip, whose absence created the most
+ difficult maze of my life. Let this work be the proof that I found a way out of it.}
 
 %-----------------------------------GLOSSARY-----------------------------------%
 
@@ -42,16 +43,22 @@
 \glsxtrnewsymbol[description={vertex degree}]{$d(v)$}{\ensuremath{d(v)}}
 \glsxtrnewsymbol[description={degree distribution}]{$P(k)$}{\ensuremath{P(k)}}
 \glsxtrnewsymbol[description={k-degree vertex}]{$n_k$}{\ensuremath{n_k}}
+\glsxtrnewsymbol[description={clustering coefficient}]{$C_i$}{\ensuremath{C_i}}
 \glsxtrnewsymbol[description={Shannon entropy}]{$H(M)$}{\ensuremath{H(M)}}
+\glsxtrnewsymbol[description={maze density}]{$r$}{\ensuremath{r}}
 \glsxtrnewsymbol[description={path length}]{$p_l$}{\ensuremath{p_l}}
 \glsxtrnewsymbol[description={maze}]{$M$}{\ensuremath{M}}
 \glsxtrnewsymbol[description={hallway}]{$h$}{\ensuremath{h}}
 \glsxtrnewsymbol[description={subset of all v in h}]{$W_h$}{\ensuremath{W_h}}
 \glsxtrnewsymbol[description={maze solution}]{$S$}{\ensuremath{S}}
 \glsxtrnewsymbol[description={maze starting vertex}]{$p$}{\ensuremath{p}}
-\glsxtrnewsymbol[description={maze goal vertex}]{$q$}{\ensuremath{q}}
-
-%\glsxtrnewsymbol[description={maze solution}]{$\gamma$}{$\gamma$}
+\glsxtrnewsymbol[description={Astar Algorithm}]{$A^*$}{\ensuremath{A^*}}
+\glsxtrnewsymbol[description={Breadth First Algorithm }]{$BFS$}{\ensuremath{BFS}}
+\glsxtrnewsymbol[description={HyperText Markup Language}]{$HTML$}{\ensuremath{HTML}}
+\glsxtrnewsymbol[description={Cascading Style Sheets}]{$CSS$}{\ensuremath{CSS}}
+\glsxtrnewsymbol[description={Document Object Model}]{$DOM$}{\ensuremath{DOM}}
+\glsxtrnewsymbol[description={Continuous Integration/Continuous Delivery}]{$CI/CD$}{\ensuremath{CI/CD}}
+\glsxtrnewsymbol[description={Standard Deviation}]{$SD$}{\ensuremath{SD}}
 
 %-----------------------------------NEW THEOREM SET UP-----------------------------------%
 
@@ -61,18 +68,26 @@
 %-----------------------------------BEGINING OF THE DOCUMENT-----------------------------------%
 \begin{document}
 
-	\titlepages
+	\titlepages%
 	\begin{abstract}
-		Abstract
+	Mazes are one of the most common representations of graph theory in daily life. They are used in many real-life applications. 
+	While studying the maze generators there is an immediate need of assessing maze solvers. 
+	computing the main maze characteristics allows to distinguish and score them with complexity measures to eventually 
+	choose the best solver. The best factor to differentiate different types of maze generators is a cross versus dead-end ratio. 
+	The best solver is Dijkstra for each assessed maze type. Besides McClendon's complexity measure, Shannon's entropy may be considered  
+	an accurate complexity measure.\\
+	\\
+	\textbf{Key words:} Maze, Aldous-Broder, Binary Tree, Recursive- Backtracker, BFS, Dijkstra, Astar, McClendon Complexity, Shannon's Entropy
+	complexity measure
 		\end{abstract}
-       \RedefinePlainStyle
+       \RedefinePlainStyle%
        \setcounter{tocdepth}{2}
 	\tableofcontents
 	\printunsrtglossary[type=symbols,style=long,title={List of Symbols}]
 	\include{chapter1}
 	\include{chapter2}
 	\include{chapter3}
-       \include{chapter4}
+    \include{chapter4}
 	\include{chapter5}
 	\include{chapter6}
 	\include{chapter7}
