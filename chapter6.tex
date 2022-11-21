@@ -2,9 +2,9 @@
 This chapter describes the web application which was created for this thesis. The main purpose of the application was to present discussed algorithms
 and the results collected during this study. One of the main assumptions of this application was to make it available to others. The purpose was to
 easily share this application, therefore it was written as a web frontend application. The application and its repository are publicly available at~\cite{26, 27}.
-\section{Technologies Used}
+\section{Technologies used}
 The following sections describe the technological stack used while building the application. It also provides a guide to the user interface. The application 
-was supposed to have a modern look and feel, and be interactive and responsive for its users. The source code \cite{27} provides a full implementation of all algorithms,
+was supposed to have a modern look and feel, and be interactive and responsive for its users. The source code~\cite{27} provides a full implementation of all algorithms,
 views and scripts needed to correctly run this application. There is no database connection provided because there was no logical reason to create a user
 authentication or save the results in a database. Each user can export data generated with this application to a PDF file. The project was developed using a free
 IDE Visual Studio Code.
@@ -22,7 +22,7 @@ clear choice as it is third, after HTML and CSS, key layer component of modern w
 It may be noticed that from the performance perspective JavaScript should not be the apparent choice. However, the objective of this study was not to maximize
 the performance, a more low-level language would be better for such a case. JavaScript is a lightweight interpreted programming language. 
 It combines two important features. On the one hand, it allows building object-oriented logic for the implemented algorithms due to some common programming
-features. On the other hand, it provides tools for dynamically changing the content of web applications \cite{29}. Furthermore, the most useful functionality built on top
+features. On the other hand, it provides tools for dynamically changing the content of web applications ~\cite{29}. Furthermore, the most useful functionality built on top
 of the client side is a Browser's API, an Application Programming Interface which can expose data from the surrounding computer environment. For this work, it was necessary to use two browser APIs, i.e. DOM and canvas. DOM is a Document Object Model that allows dynamically manipulate with HTML and CSS.
 Canvas is for creating 2D graphics which was used in the maze generation component to visualise the generated mazes and their solution. 
 \subsection{Charts.js}
@@ -30,7 +30,7 @@ Chart.js~\cite{30} is a free, open-source JavaScript library used for data visua
 HTML5 canvas component. It is a well-known library, which is easy to use. In the application, two scatter plots are implemented with three category classes 
 for each solver. It also provides an animated look for generated charts out of the box.
 \subsection{GitHub Pages}
-The created app is publicly available through hosting by GitHub Pages\cite{28}. GitHub Pages is a static site hosting service for client-side-only applications, it does not support
+The created app is publicly available through hosting by GitHub Pages~\cite{28}. GitHub Pages is a static site hosting service for client-side-only applications, it does not support
 server-side languages. It builds a web page directly from the GitHub Repository of the Project. Service takes HTML, CSS and JavaScript, and runs the files through
 the Jekyll building process and publishes a website on the github.io domain or custom domain for free. Jekyll is a static site generator with built-in support for 
 GitHub Pages and a simplified build process. Jekyll takes Markdown and HTML files and creates a completely static website. After each push to the repository a GitHub
@@ -87,9 +87,9 @@ Astar - blue, BFS - red, Dijkstra - green.\\
 \newpage
 \textbf{$-$Charts Section}\\
 Each solution populates a dataset which is drawn into the charts canvas. The chart section contains two separate plots, which collect information about 
-generated mazes and their solutions until the Clear All Data button is pressed. The top plot in \textcolor{red}{Figure 6.5 presents a maze complexity versus solution time in milliseconds.
-Maze complexity represents a McClendon complexity measure defined in section 4.2.2 by the equation (4.7). Bottom plot in figure 6.5 shows $\frac{cross}{deadend}$
-ratio versus solution time in milliseconds. The ratio of dead-ends and crosses is given by the degree distribution given in section 4.1.1 by Definition 23 and the equation (4.1).}\\
+generated mazes and their solutions until the Clear All Data button is pressed. The top plot in Figure 6.5 presents a maze complexity versus solution time in milliseconds.
+Maze complexity represents a McClendon complexity measure defined in section 4.2.2 by the equation (4.7). Bottom plot in figure 6.5 shows $\frac{cross}{dead-end}$
+ratio versus solution time in milliseconds. The ratio of dead-ends and crosses is given by the degree distribution given in section 4.1.1 by Definition 23 and the equation (4.1).\\
 \begin{figure}[!h]
     \centering
     \centering
@@ -110,4 +110,16 @@ All Data button is pressed.\\
     \caption{All generated data are stored in the table which may be exported to the PDF file. It gathers all maze and solvers parameters.\\ 
     Source: created by the author }
     \end{figure}
-\newline  
+\newline 
+\section{Conclusions}
+This section presents the conclusions of the described web application. The primary idea of the application was to present discussed
+algorithms and the results collected during this study. All main outlined objectives were realised. Application allows to verify how the described parameters
+affect the appearance of the maze, its solutions and the required solution time on a dedicated charts, tables and figures. The application is available publicly.\\
+Each application user can:\\
+$-$ generate a maze using the following algorithms: Binary Tree, Aldous-Broder, Recursive-Backtracker,\\
+$-$ add cycles and directed cells to previously generated maze using the UI and interactive canvas,\\
+$-$ solve the maze using the following algorithms: Dijkstra, $A^*$, BFS,\\
+$-$ observe how maze complexity and cross to dead-end ratio changes for each maze,\\
+$-$ collect and download detailed informations of generated mazes and solutions.\\
+
+ 

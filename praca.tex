@@ -37,7 +37,6 @@
 \glsxtrnewsymbol[description={set of edges}]{$E$}{\ensuremath{E}}
 \glsxtrnewsymbol[description={edge}]{$e$}{\ensuremath{e}}
 \glsxtrnewsymbol[description={adjacency matrix}]{$A(i,j)$}{\ensuremath{A(i,j)}}
-\glsxtrnewsymbol[description={edge weight}]{$w$}{\ensuremath{w}}
 \glsxtrnewsymbol[description={binary tree}]{$B$}{\ensuremath{B}}
 \glsxtrnewsymbol[description={spanning tree}]{$T$}{\ensuremath{T}}
 \glsxtrnewsymbol[description={vertex degree}]{$d(v)$}{\ensuremath{d(v)}}
@@ -67,19 +66,33 @@
 \newtheorem{definition}{Definition}
 %-----------------------------------BEGINING OF THE DOCUMENT-----------------------------------%
 \begin{document}
-
 	\titlepages%
+%-----------------------------------ABSTRACT-----------------------------------%	
 	\begin{abstract}
-	Mazes are one of the most common representations of graph theory in daily life. They are used in many real-life applications. 
-	While studying the maze generators there is an immediate need of assessing maze solvers. 
-	Computing the main maze characteristics allows to distinguish and score them with complexity measures to eventually 
-	choose the best solver. The most important factor to differentiate different types of maze generators is a cross versus dead-end ratio. 
-	The fastest solver for each, assessed maze type is Dijkstra. Besides McClendon's complexity measure, Shannon's entropy may be considered  
-	as an accurate complexity measure.\\
-	\\
+\indent In this Master's Thesis, three maze generators and three maze solvers have been investigated and described. Chapter 2 describes in detail the
+theoretical foundations derived from Graph Theory, necessary for a precise description of the essence of the studied problems. It shows the most
+important parameters describing graphs and mazes, and includes all definitions. All used algorithms are described in detail, along
+with the listings.\\
+\indent Maze problems and related algorithms are very popular in real-life applications. Chapter 3 presents in detail where discussed algorithms are used,
+and how people benefit from them.\\ 
+\indent One of the main purposes of this work was also to provide an accurate framework for defining the maze's complexity. The most common idea behind
+measuring maze complexity derives only from one concept work. Chapter 4 proves that there are more ways to define maze complexity and that measures of
+complexity derived directly from Graph Theory can be used with great success.\\
+\indent Chapter 5 presents the collected results and their analysis. This chapter summarizes all obtained work objectives that are consistent with the
+assumed objectives. The analysis of the results shows that it is possible to create a framework that allows distinguishing between different mazes
+based on their parameters. It is also feasible to evaluate maze complexity by more than the McClendon's measure. Also, Shannon's entropy may be used as a
+reliable complexity measure for the studied maze generators. Finally, the conclusions of the results allow providing an answer that the Dijkstra solver
+is the best solver for evaluated algorithms, not only for perfect mazes but also for more complicated ones.\\
+\indent Chapter 6 presents a detailed description of a web application developed for this work. A lightweight application created in JavaScript allows
+visualising the results of the maze generators and solvers described in this work. In the application, it is possible to verify how the described parameters
+affect the appearance of the maze, their solutions and the required solution time on dedicated charts, tables and figures.\\
+\indent The results and conclusions presented in this work can be used by others to expand research in this area. The framework presented here can be applied
+to other types of maze generators and solvers to validate conclusions for other maze problems.\\
+\newline
 	\textbf{Key words:} Maze, Aldous-Broder, Binary Tree, Recursive- Backtracker, BFS, Dijkstra, Astar, McClendon Complexity, Shannon's entropy
 	complexity measure\\
 		\end{abstract}
+		
        \RedefinePlainStyle%
        \setcounter{tocdepth}{2}
 	\tableofcontents
