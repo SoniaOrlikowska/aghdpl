@@ -33,7 +33,7 @@ $R$ is a set of possible outcomes, e.g.  All possible adjacency matrix of size $
 $p(x_i)$ is a probability of outcome $R$,\\
 $r= |R|$\\
 \section{Maze complexity Measures}
-This section, summarize the characteristics which impact the complexity of a maze, such as maze size, average path length, density, and McClendon's complexity measure. It provides an overview of different approaches and tries to compare them. All parameters presented in this chapter are evaluated in Chapter 5.
+This section, summarize the characteristics which impact the complexity of a maze, such as maze size, average path length, density, and McClendon's complexity measure. It provides an overview of different approaches and tries to compare them. All parameters presented in this chapter are evaluated in Chapter 5.\\
 \subsection{Independant Maze Parameters}
 Size is one of the most indisputable complexity factors of a maze. A maze is described as per Definition 19. In Figure 4.1 two mazes with different sizes are
 presented. It is almost too easy to think that a small maze is a simple maze, and a huge maze is a difficult one.\\
@@ -55,6 +55,8 @@ presented. It is almost too easy to think that a small maze is a simple maze, an
 \label{fig:test}
 \end{figure}
 \newline
+\newline
+\\
 Another key characteristic determining the complexity of a maze is the average length $\bar{p_l}$ of the paths in a maze. The longer the path, the bigger
 the risk of following a faulty road to a solution. \textcolor{black}{Path is given by Definition 8}. Its beginning is always a start cell and it leads to
 each dead-end in acyclic mazes. In cyclic mazes, paths can be infinite according to Definition 4. \textcolor{black}{In Figure 4.2 two mazes of the same size
@@ -77,6 +79,8 @@ but different average path lengths are presented}.
 \caption{Examples of different average path length mazes. In figure (a) it s an example of the Aldous-Broder maze with $\bar{p}_l = 9.42$. Figure (b) it s an example of a Binary Tree maze with $\bar{p}_l = 10.8$\\ Source: Developed by the author,  based on Aldous-Broder Algorithm Listing 1.1 and Binary Tree Algorithm 1.2. }
 \label{fig:test}
 \end{figure}
+\newline
+\newline
 Density for an acyclic graph is given by the equation (\ref{acyclic_density}), and density for a cyclic maze is given by the equation (\ref{cyclic_density}).
 It describes the ratio between the number of all possible connections and the existing number of connections (edges).
 \newpage
@@ -100,7 +104,6 @@ densities are presented.
 \label{fig:test}
 \end{figure}
 
-\newpage
 \subsection{McClendon Measure}
 Few sources are indicating a quantitative study of the measure of maze complexity. One of the most cited works in this field is a McClendon \textcolor{black}{\cite{14}} study of maze difficulty and complexity. 
 McClendon’s work treats maze complexity and difficulty in a continuous measure using continuum theory. The main presuppositions of the work are that the maze is a perfect maze type and there are two distinguished pairs of points $(p,q)$ in the maze $M$ called gates. Where $p$ is an entrance and $q$ is an exit.  Hallways  $h$ build a maze. 
@@ -154,8 +157,7 @@ Recursive Backtracker\cite{18}& $O(|V|+|E|)$\\
  \end{tabular} 
 \caption{Time complexity of maze generating algorithms, \textcolor{red}{represented in the Big O notation.\\Source: created by the author based on [16,17,18].}} 
  \end{table}
- \newline
- \newline
+\newpage
 \textbf{Uniquness and Distinctiveness of a Maze}\\
 Another approach to describing a maze might be evaluating its uniqueness and distinctiveness. For this purpose, it is possible to study how complicated the
 algorithm generating a given maze must be and how statistically often a specific set of features occurs. One of the methods may be the parameterization of
@@ -167,14 +169,14 @@ occurs. \textcolor{red}{The unbiased texture of Aldous-Broder maze is visible in
 \newline
 \begin{figure}[!h]
     \centering
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{.4\textwidth}
     \centering
-    \includegraphics[width=.5\linewidth]{binarydegree.png}
+    \includegraphics[width=0.9\textwidth]{binarydegree.png}
     \caption{}
     \end{subfigure}%
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=.5\linewidth]{aldousdegree.png}
+    \includegraphics[width=0.9\linewidth]{aldousdegree.png}
     \caption{}
     \end{subfigure}
     \caption{Examples of different textures in mazes. \textcolor{red}{Figure (a) and (b) present a degree distribution applied directly on a maze where all edges were removed.
