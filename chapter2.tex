@@ -148,7 +148,7 @@ The shortest path cannot contain any cycles \cite{5}.}\end{definition}
 \bar{d} = \frac{r}{n-1}	
 \end{equation}
 \textbf{Where:}\\
-$n$ is a number of vertices in the graph\\	
+$n$ is a number of vertices in the graph.\\	
 }\end{definition}
 \begin{definition}\textbf{A Dead End} \emph{ is defined as a node with a degree $d(v) = 1$. In the maze \textcolor{black}{it is} a cell that is linked to only one adjacent node.}\end{definition}
 \begin{definition}\textbf{A Fork} \emph{is defined as a node with a degree $d(v) = 2$. In the maze, it is a cell that is linked to two adjacent nodes.}\end{definition}
@@ -375,8 +375,8 @@ $f(n)$ given by equation (2.4). The $A^*$ Algorithm implemented in this work is 
 f(n) = g(v) + h(v)
 \end{equation}
 \textbf{Where:}\\
-$g(v)= |v - p| + |v - n|$\\
-$|v - p|$ it is a distance from the starting point $p$ to any current vertex $v$\\
+$g(v)= |v - p| + |v - n|$,\\
+$|v - p|$ it is a distance from the starting point $p$ to any current vertex $v$,\\
 $|v - n|$ it is a distance from any current vertex $v$ to its neighbour $n$.\\
 \newline
 The heuristic cost from neighbour vertex $v$ to goal vertex $q$ is given as a:
@@ -384,7 +384,7 @@ The heuristic cost from neighbour vertex $v$ to goal vertex $q$ is given as a:
 h(v) = |q.x - n.x| + |q.y - n.y|
 \end{equation}
 \textbf{Where:}\\
-$x$ and $y$ are grid coordinates of vertices\\
+$x$ and $y$ are grid coordinates of vertices.\\
 
 \begin{lstlisting}[caption={Pseudocode for a A* algorithm. Source: developped by the author, based on~\cite{19}.}]
 	\begin{algorithm}

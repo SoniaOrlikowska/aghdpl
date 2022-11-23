@@ -31,7 +31,7 @@ H(M) = - \sum_{r = 1}^{r} p(x_i)\log_2 p(x_i)
 \textbf{Where:}\\
 $R$, is a set of possible outcomes, e.g.  All possible adjacency matrix of size $m$,\\
 $p(x_i)$ is a probability of outcome $R$,\\
-$r= |R|$\\
+$r= |R|$.\\
 \section{Maze complexity measures}
 This section, summarize the characteristics which impact the complexity of a maze, such as maze size, average path length, density, and McClendon's complexity measure. It provides an overview of different approaches and tries to compare them. All parameters presented in this chapter are evaluated in Chapter 5.\\
 \subsection{Independant maze parameters}
@@ -114,7 +114,7 @@ A trail is a path in the maze built by hallways. The branch is any trail interse
 \end{equation}
 \textbf{Where:}\\
 $D(h)$ is an arclength of $h$,\\ 
-$\theta(w_i)$ is the absolute value of the difference in the radian measures between the directions $V(t_i)$ and $V(t_{t+1})$\\ 
+$\theta(w_i)$ is the absolute value of the difference in the radian measures between the directions $V(t_i)$ and $V(t_{t+1})$,\\ 
 $d(w_i)$ is a length of a arc between $w_{i-1}$ and $w_i$ in $W_h$.\\ 
 \newline
 The McClendon’s complexity of a maze $M$ is given by:\\
@@ -129,22 +129,20 @@ Using equation (4.5) requires knowledge about the solution of the maze. To avoid
 \begin{equation}
 \gamma(M) \approx \log \bigl[\sum_{i =1}^{i}\gamma(h_i)\bigr]
 \end{equation}
-\\
 \textbf{Where:}\\
-$\gamma(h_i)$ is the complexity of an $i^{th}$ hallway $h_i$\\
+$\gamma(h_i)$ is the complexity of an $i^{th}$ hallway $h_i$.\\
  \newline
 In this \textcolor{black}{thesis} we are using the square grid to generate and solve mazes. As a result of \textcolor{black}{a} uniform grid, the McClendon measure will be simplified, and calculated as:
 \begin{equation} 
 \gamma(M) \approx \log \bigl[\sum_{i =1}^{i}\frac{h(i)_l\cdot \mathcal{T}}{2}\bigr]
 \end{equation}
-
 \textbf{Where:}\\
 $h(i)_l$ is the total length of the hallway,\\
 $\mathcal{T}$ is the total number of L turns in the hallway, and each L turn is 90$^\circ$.%porownac to co wyjdzie z tym wykresem w tej pracy 
 \subsection{Other approaches to delineate maze complexity }
 In sections 4.1 and 4.2 different quantitative measures to define maze complexity were discussed. In this section, two descriptive methods determining the difficulty of the maze are presented. Biased mazes and the time complexity of maze generators may be considered as premises for reduced algorithmic randomness. This work will try to verify if those premises correlate with the time required to solve a maze, or it s McClendon’s complexity.\\ \newline
-\textbf{Time complexity of maze generators}\\
-Looking at the time complexity of maze generators we can compare them and analyze whether the solution time depends on the time complexity. In Table 4.1 time complexity of different maze generators is presented. The analysis of the relation between time complexity and solution time is presented in Chapter 5.\\
+\indent \textbf{Time complexity of maze generators}\\
+\indent Looking at the time complexity of maze generators we can compare them and analyze whether the solution time depends on the time complexity. In Table 4.1 time complexity of different maze generators is presented. The analysis of the relation between time complexity and solution time is presented in Chapter 5.\\
 \begin{table}[!ht]
 \centering
 \begin{tabular}{ |c||c| } 
@@ -157,9 +155,9 @@ Recursive Backtracker\cite{18}& $O(|V|+|E|)$\\
  \end{tabular} 
 \caption{Time complexity of maze generating algorithms, represented in the Big O notation.\\Source: created by the author based on [16,17,18].} 
  \end{table}
-\newpage
-\textbf{Uniquness and distinctiveness of a maze}\\
-Another approach to describing a maze might be evaluating its uniqueness and distinctiveness. For this purpose, it is possible to study how complicated the
+ \newpage
+\indent\textbf{Uniquness and distinctiveness of a maze}\\
+\indent Another approach to describing a maze might be evaluating its uniqueness and distinctiveness. For this purpose, it is possible to study how complicated the
 algorithm generating a given maze must be and how statistically often a specific set of features occurs. One of the methods may be the parameterization of
 the maze by classic measures such as density distribution or average path length and testing how often they appear in a specific configuration. Another
 the method could be to look for biased features. Biased features are some peculiarities of the maze which are visible repeating structures. Good examples of a

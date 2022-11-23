@@ -21,7 +21,6 @@ $-$ weight of each edge equals 1.\\
 $-$ perfect maze (Definition 20),\\
 $-$ no directed edges,\\
 $-$ each maze is solvable, there is a direct path from starting point to the goal point.\\
-\newpage
 \textbf{Variant 2 specific presumptions: }\\
 $-$ Unperfect maze (Definition 21),\\
 $-$ $50\%$ of randomly added links to the randomly selected cells in a maze grid,\\
@@ -34,7 +33,7 @@ blue for the Aldous-Broder algorithm, red for the Recursive-Backtracker algorith
 the critical level of the test is $p<0.001$. A skewness lower than 1.5 is considered small. This indicates that the magnitude of the difference between the
 sample distribution and the normal distribution is also small. A skewness higher than 1.5 is considered as medium or large, indicating a medium or large difference.\\
 %------------------------------------AVERAGE PATH LENGHT---------------------------------------------------------
-\subsubsection{Paths Length}
+\subsection{Paths Length}
 Table 5.1 presents the results of the average and median of path length for generated mazes in variant 1.
 According to Definition 8, paths in cyclic mazes may be infinite, therefore there is no data presented for variant 2. For Aldous-Broder and Binary Tree
 generators, the average and SD may be considered as reliable measures due to the small skewness. However, for the Recursive-Backtracker the median is a more 
@@ -54,7 +53,7 @@ reliable measure due to the big skewness.
     \end{table}
     \newpage
 %------------------------------------STEPS TO SOLVE---------------------------------------------------------
-\subsubsection{Steps to solve}
+\subsection{Steps to solve}
 Tables 5.2 and 5.3 present descriptive statistics of steps needed to solve a maze. Data is split by the maze generators and maze solvers. 
 \begin{table}[!ht]
     \centering
@@ -94,7 +93,7 @@ Tables 5.2 and 5.3 present descriptive statistics of steps needed to solve a maz
 \end{table}    
     %------------------------------------SOLUTION TIME---------------------------------------------------------
 \newpage  
-\subsubsection{Solution Time}
+\subsection{Solution Time}
 Figure 5.1, Table 5.4 and Table 5.5 presents an overview of the descriptive statistics of measured solution time.\\
 \begin{figure}[!h]
     \centering
@@ -163,10 +162,10 @@ Figure 5.1, Table 5.4 and Table 5.5 presents an overview of the descriptive stat
 \newline
 \newline
 
-\subsubsection{McClendon's complexity}
+\subsection{McClendon's complexity}
 Tables 5.6 and 5.7 present the average and median of the complexity measure for different maze generators. Modulo of skewness is lower than 1.5 which states the set
 distribution is very close to the normal distribution, therefore, the average and SD may be considered the reliable measure. Figures 5.2(a) and 5.3(a) present scatter
-plots of maze size versus McClendon's complexity. In Figures, 5.2(a) and 5.2(b), a box plot of McClendon's complexity distributions are showing
+plots of McClendon's complexity versus maze size. In Figures, 5.2(a) and 5.2(b), a box plot of McClendon's complexity distributions are showing
 mean complexity with standard deviation and maximal and minimal values.\\
 \begin{table}[!ht]
     \centering
@@ -219,10 +218,10 @@ mean complexity with standard deviation and maximal and minimal values.\\
  \newline
  \newline
  \newline
- \subsubsection{Shanonn's Entropy}
+ \subsection{Shanonn's Entropy}
 Tables 5.8 and 5.9 present the average and median of the complexity measure for different maze generators. Despite the skewness is smaller than 1.5 and stating that the set
 distribution is close to the normal distribution, due to huge SD the median may be considered a more reliable measure. In Figures 5.3(a) and 5.3(b), scatter
-plots of maze size versus Shannon's entropy are presented.\\
+plots of Shannon's entropy versus maze size are presented.\\
 
 \begin{table}[!ht]
     \centering
@@ -265,10 +264,10 @@ plots of maze size versus Shannon's entropy are presented.\\
  \newline   
 \newpage
 %------------------------------------DEGREE DISTRIBUTION--------------------------------------
-\subsubsection{Degree Distribution}  
+\subsection{Degree Distribution}  
 In Tables 5.10 and 5.11 statistical information of degree distribution for different maze generators. Degree distribution for both, variant 1 and variant 2
 is defined by the normal distribution so the average and SD may be considered reliable measures.
-Figures 5.4(a) and 5.4(b) present a scatter plot of a dead-end ratio versus a cross-ratio.
+Figures 5.4(a) and 5.4(b) present a scatter plot of a cross ratio versus dead-end ratio.
 
 \begin{table}[!h]
     \begin{center} 
@@ -318,7 +317,7 @@ Cross Ratio&$0.034\pm 0.006$&$0.001\pm 0.001$&$0.000\pm 0.000$\\
                 \includegraphics[width=1\linewidth]{crossvSDead_variant2.png}
                \caption{}
             \end{subfigure}
-            \caption{(a) presents Variant 1 and (b) presents Variant 2: A scatter plot of dead-end ratio versus cross-ratio. Source: developped by the author.}
+            \caption{(a) presents Variant 1 and (b) presents Variant 2: A scatter plot of cross ratio versus dead-end ratio. Source: developped by the author.}
             \end{figure}
 \newpage
 \newpage
@@ -395,7 +394,7 @@ The results for Aldous-Broder mazes fall between Recursive-Backtracker and Binar
 \indent Solution time for the Dijkstra solver is the shortest regardless of the size and maze type. Dijkstra's median of solution time does not exceed 0.2 ms for each type of maze.
 The longest solution time was measured for Astar solver for which the worst-case is 14.46 ms for solving a Recursive-Backtracker maze.
 However, the Astar solution time varies the most depending on the maze generator which is visible in Figure 5.1(a) and Table 5.4\\
-\textbf{Variant 2}\\ 
+\indent \textbf{Variant 2}\\ 
 \indent There is an observable drop in the median of the number of steps and solution time for Astar and BFS solvers in mazes with cycles. Astar, worst-case solution time, 
 for a Recursive-Backtracker maze, is only 1.84 ms in comparison to 14.46 ms for a perfect maze. The BFS solution time is also lower than for the perfect mazes, but not
 that significant. BFS worst-case solution time for a Recursive-Backtracker maze is 0.89 ms in comparison to 1.14 ms for a perfect maze. 
@@ -417,8 +416,8 @@ in terms of its solution time. Figure 5.3(a) presents the data for maze entropy 
 Moreover, the hierarchy of entropy corresponds to solution time. The bigger the entropy the longer the solution time. The most difficult mazes are Recursive-Backtracker and 
 the easiest are Binary Trees. The implemented entropy is based not on the length path but rather a degree distribution, which allows concluding that it is the most reliable 
 maze complexity measure that McClendon's.\\
-\textbf{Variant 2}\\
-On the other hand, McClendon's complexity measure does not occur accurately for mazes with cycles. Figure 5.2(b) and Table 5.7 state that the most
+\indent \textbf{Variant 2}\\
+\indent On the other hand, McClendon's complexity measure does not occur accurately for mazes with cycles. Figure 5.2(b) and Table 5.7 state that the most
 complicated mazes are Aldous-Broder, Binary Tree and the easiest Recursive-Backtracker. But the solution times for each solver are the lowest, particularly for 
 Aldous-Broder mazes. It seems that the McClendon complexity measure does not reflect the actual complexity but rather the hallway lengths and their twistiness. So it
 is tightly connected only to maze size, without taking into consideration the complexity itself.
